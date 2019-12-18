@@ -16,7 +16,7 @@ pipeline {
                         sh 'sudo apt-get install -y wget tree unzip'
                         sh 'wget https://packages.chef.io/files/stable/chef-workstation/0.10.41/ubuntu/16.04/chef-workstation_0.10.41-1_amd64.deb'
                         sh 'sudo dpkg -i chef-workstation_0.10.41-1_amd64.deb'
-                        sh 'sudo chef env --chef-lience accept'
+                        sh 'sudo chef env --chef-license accept'
                     }
                 }
             }
