@@ -6,9 +6,12 @@ pipeline {
                 sh "sudo rm -rf $WORKSPACE/*"
             }
         }
-        stage('Second Stage') {
+        stage('Installing Chef Workstation') {
             steps {
-                echo "Second stage"
+                sh 'sudo apt-get install -y wget tree unzip'
+                sh 'wget https://packages.chef.io/files/stable/chef-workstation_0.10.41-1_amd.deb'
+                sh 'sudo dpkg -i chef-workstation_0.10.41-1.amd64.deb'
+                sh 'sudo chef env --chef-lience accept'
             }
         }
         stage('Third Stage') {
