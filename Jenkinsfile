@@ -27,10 +27,14 @@ pipeline {
             }
         }
         stage('Install Kitchen Docker Gem') {
-            def exists = fileExists '/.gem/ruby/2.6.0'
-
             steps {
-                sh 'chef gem install kitchen-docker'
+                script {
+                    def exists = fileExists '/opt/chef-workstation/embedded/lib/ruby/gems/2.6.0/specifications'
+                    if (exists) {
+                        echo "Skipping Kitchen Docker Gem install - already installed"
+                    } else {
+                        sh 'chef gem install kitchen-docker'
+                    }
             }
         }
     }
