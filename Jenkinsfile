@@ -26,5 +26,10 @@ pipeline {
                 git credentialsId: 'git-repo-creds', url: 'git@github.com:Tyler-Pritchard/apache2.git'
             }
         }
+        stage('Install Kitchen Docker Gem') {
+            steps {
+                sh 'chef gem install kitchen-docker'
+            }
+        }
     }
 }
