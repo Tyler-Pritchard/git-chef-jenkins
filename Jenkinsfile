@@ -27,7 +27,7 @@ pipeline {
             }
         }
         stage('Install Kitchen Docker Gem') {
-            def exists = fileExists '/usr/bin/kitchen-docker'
+            def exists = fileExists '/.gem/ruby/2.6.0'
 
             steps {
                 sh 'chef gem install kitchen-docker'
