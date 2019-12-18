@@ -21,10 +21,9 @@ pipeline {
                 }
             }
         }
-        stage('Third Stage') {
+        stage('Download Apache Cookbook') {
             steps {
-                echo "Third stage"
+                git credentialsId: 'git-repo-creds', url: 'git@github.com:Tyler-Pritchard/apache2.git'
             }
         }
     }
-}
