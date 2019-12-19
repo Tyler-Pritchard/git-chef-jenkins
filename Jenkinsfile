@@ -32,7 +32,12 @@ pipeline {
             }
         }
         stage("Upload to Chef Infra Server, Converge Nodes") {
-
+            steps {
+                withCredentials([zip(credentialsId: 'chef-starter-zip', variable 'CHEFPRO')]) {
+                    sh 'chef install $WORKSPACE/Policyfile.rb -c $CHEFREPO/chef-repo/.chef/knife.rb'
+                    sh 'sudo chef push prod $WORKSPACE/Policyfile.lock.json -c $CHEFREPO/chef-repo/.chef/knife.rb'
+                }
+            }
         }
     }
 }
