@@ -21,11 +21,11 @@ pipeline {
                 }
             }
         }
-        // stage('Download Apache Cookbook') {
-        //     steps {
-        //         git credentialsId: '158f5b63-2d99-4c53-9a39-dc1eec8c8a4c', url: 'git@github.com:Tyler-Pritchard/apache2.git'
-        //     }    
-        // }
+        stage('Download Apache Cookbook') {
+            steps {
+                git credentialsId: '158f5b63-2d99-4c53-9a39-dc1eec8c8a4c', url: 'git@github.com:Tyler-Pritchard/apache2.git'
+            }    
+        }
         // stage('Install Kitchen Docker Gem') {
         //     steps {
         //         sh 'chef gem install kitchen-docker'
