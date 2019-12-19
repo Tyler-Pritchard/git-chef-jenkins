@@ -23,8 +23,8 @@ pipeline {
         }
         stage('Download Apache Cookbook') {
             steps {
-                git credentialsId: 'git-repo-creds', url: 'git@github.com:Tyler-Pritchard/apache2.git'
-            }
+                git credentialsId: '158f5b63-2d99-4c53-9a39-dc1eec8c8a4c', url: 'git@github.com:Tyler-Pritchard/apache2.git'
+            }    
         }
         stage('Install Kitchen Docker Gem') {
             steps {
