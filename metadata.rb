@@ -1,6 +1,6 @@
 name 'apache'
 maintainer 'Tyler Pritchard'
-maintainer_email 'john_doe@example.com'
+maintainer_email 'tyler@technotrainer.com'
 license 'All Rights Reserved'
 description 'Installs/Configures apache'
 version '0.1.0'
