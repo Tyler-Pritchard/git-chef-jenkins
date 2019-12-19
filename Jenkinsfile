@@ -36,6 +36,10 @@ pipeline {
                 withCredentials([zip(credentialsId: 'chef-starter-zip', variable 'CHEFPRO')]) {
                     sh 'chef install $WORKSPACE/Policyfile.rb -c $CHEFREPO/chef-repo/.chef/knife.rb'
                     sh 'sudo chef push prod $WORKSPACE/Policyfile.lock.json -c $CHEFREPO/chef-repo/.chef/knife.rb'
+                    withCredentials([sshUserPrivateKey(credentialsId: 'agent-key', keyFileVariable:
+                    'agentKey', passPhraseVariable: ", usernameVariable: ")]) {
+                        sh "knife ssh 'policy_name:apache' -x ubuntu -i $agentKey 'sudo chef-client' -c $CHEFREPO/chef-repo/.chef/knife.rb"
+                    }
                 }
             }
         }
