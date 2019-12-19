@@ -31,5 +31,8 @@ pipeline {
                 sh 'chef gem install kitchen-docker'
             }
         }
+        stage("Upload to Chef Infra Server, Converge Nodes") {
+
+        }
     }
 }
